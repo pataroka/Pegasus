@@ -1,0 +1,18 @@
+body {
+    background-color: #c1e2b3;
+}
+
+#game-wrapper{
+    text-align: center;
+}
+
+canvas {
+    background-color: #cbab41;
+    padding: 5px;
+    margin: 10px;
+    border-width: 20px;
+    border-color: #3d0032;
+    border-style: solid;
+}
+
+
