@@ -27,3 +27,6 @@ theme = document.createElement('audio');
 theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
 theme.setAttribute('loop', 'true');
 theme.play();
+
+var input = new Input();
+attachListeners(input);
