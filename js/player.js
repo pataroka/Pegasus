@@ -15,21 +15,19 @@ var Player = (function() {
     }
 
     Player.prototype.update = function () {
-        if (this.movement.left) {
+/*        if (this.movement.left) {
             this.position.x  -= this.velocity; //move 1 block to left
             console.log('left');
         } else if (this.movement.right) {
             this.position.x += this.velocity; // move 1 block to right
             console.log('right');
-        }
-
-        if (this.movement.up) {
+        } else if (this.movement.up) {
             this.position.y -= this.velocity;
             console.log('up');
         } else if (this.movement.down) {
             this.position.y += this.velocity;
             console.log('down');
-        }
+        }*/
 
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x;
