@@ -15,7 +15,7 @@ var Timer = (function() {
 			+ this.currentTime.getMinutes() * 60
 			+ this.currentTime.getSeconds());
 
-		this.timerMinutes = (this.currentTimer - this.startingTimer) / 60;
+		this.timerMinutes = Math.floor((this.currentTimer - this.startingTimer) / 60);
 		this.timerSeconds = (this.currentTimer - this.startingTimer) % 60;
 		if (this.timerSeconds < 10) {
 			this.timerText = this.timerMinutes.toFixed(0) + ":0" + this.timerSeconds.toFixed(0);

@@ -6,9 +6,7 @@ var Lives = (function() {
 		this.height = 32;
 		this.position = new Vector2(x, y);
 		
-
-		this.animation = new Animation(this.width, this.height, 0, 0, 1, 'assets/images/frogHeart.png', 0, 0, 1);
-		
+		this.animation = new Animation(this.width, this.height, 0, 0, 1, 'assets/images/frogHeart.png', 0, 0, 1);		
 	};
 
 	Lives.prototype.update = function() {
