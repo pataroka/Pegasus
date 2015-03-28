@@ -3,11 +3,11 @@
  */
 var Player = (function() {
     function Player(x, y) {
-        this.width = 76;
-        this.height = 76;
+        this.width = 40;
+        this.height = 40;
         this.position = new Vector2(x, y);
-        this.movement = {left : false, right : false, up : false, down : false}
-        this.velocity = 76;
+        this.movement = {left : false, right : false, up : false, down : false};
+        this.velocity = 40;
         this.animation = new Animation(this.width, this.height, 0, 0, 1, 'assets/images/spritemap.png', 1, 0, 0);
 
         //The boundaries for player, check for colide with enemies

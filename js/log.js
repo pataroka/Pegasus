@@ -3,9 +3,9 @@
  */
 var Log = (function() {
     function Log(x, y) {
-        this.width= 76;
-        this.height = 76;
-        this.velocity = 10; //1 block
+        this.width= 120;
+        this.height = 40;
+        this.velocity = 2; //1 block
         this.position = new Vector2(x, y);
 
         this.animation = new Animation(this.width, this.height, 2, 0, 1, 'assets/images/spritemap.png', 1, 0, 0); //we need sprite for log here, @param see framework.js
@@ -19,6 +19,13 @@ var Log = (function() {
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
         this.animation.update();
+        if (this.position.x > 480){
+            this.position.x = -100;
+            this.animation.position.set(this.position.x, this.position.y);
+            this.boundingBox.x = this.position.x;
+            this.boundingBox.y = this.position.y;
+            this.animation.update();
+        }
     };
 
     Log.prototype.render = function(ctx) {

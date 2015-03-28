@@ -31,13 +31,65 @@ theme.play();
 var input = new Input();
 attachListeners(input);
 
-var player = new Player(canvas.width/2, canvas.height - 80);
+var player = new Player(240, 560);
+
+var objects = [];
+
+
+
+function createRow (rownumber, number) {
+    switch (rownumber){
+        case 2: for (var i = 1; i <= number; i++) {
+            objects.push(new Log(-150*i, rownumber*40));
+        } break;
+        case 3: for (var i = 1; i <= number; i++) {
+            objects.push(new Turtle(600*i, rownumber*40));
+        } break;
+        case 4: for (var i = 1; i <= number; i++) {
+            objects.push(new Log(-150*i, rownumber*40));
+        } break;
+        case 5: for (var i = 1; i <= number; i++) {
+            objects.push(new Log(-150*i, rownumber*40));
+        } break;
+        case 6: for (var i = 1; i <= number; i++) {
+            objects.push(new Turtle(600*i, rownumber*40));
+        } break;
+        case 9: for (var i = 1; i <= number; i++) {
+            objects.push(new Truck(600*i, rownumber*40));
+        } break;
+        case 10: for (var i = 1; i <= number; i++) {
+            objects.push(new Car(-150*i, rownumber*40));
+        } break;
+        case 11: for (var i = 1; i <= number; i++) {
+            objects.push(new Car(-150*i, rownumber*40));
+        } break;
+        case 12: for (var i = 1; i <= number; i++) {
+            objects.push(new Car(-150*i, rownumber*40));
+        } break;
+        case 13: for (var i = 1; i <= number; i++) {
+            objects.push(new Car(-150*i, rownumber*40));
+        } break;
+    }
+
+}
+
+function renderAll (ctx){
+    for (var i = 0; i < objects.length; i++) {
+        objects[i].render(ctx);
+    }
+}
+
+function updateAll (){
+    for (var i = 0; i < objects.length; i++) {
+        objects[i].update();
+    }
+}
+
 
 function update(){
     this.tick();
     this.render(ctx);
     requestAnimationFrame(update);
-
 }
 
 function tick(){
@@ -46,13 +98,19 @@ function tick(){
     player.movement.up = !!input.up;
     player.movement.down = !!input.down;
     player.update();
-
+    updateAll();
 
 }
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render(ctx);
+    renderAll(ctx);
+
+}
+
+for (var i = 0; i < 16; i++) {
+    createRow(i,4);
 
 }
 
