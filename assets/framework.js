@@ -492,16 +492,20 @@ function attachListeners(input) {
                 input.space = true;
                 break;
             case 37:
-                input.left = true;
+                player.position.x -= player.velocity;
+                //input.left = true;
                 break;
             case 38:
-                input.up = true;
+                player.position.y -= player.velocity;
+                //input.up = true;
                 break;
             case 39:
-                input.right = true;
+                player.position.x += player.velocity;
+                //input.right = true;
                 break;
             case 40:
-                input.down = true;
+                player.position.y += player.velocity;
+                //input.down = true;
                 break;
             case 65:
                 input.a = true;
