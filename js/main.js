@@ -28,13 +28,15 @@ theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
 theme.setAttribute('loop', 'true');
 theme.play();
 
+var livesCounter = 3;
+var lives = [];
+
 var input = new Input();
 attachListeners(input);
 
 var player = new Player(240, 560);
 
 var objects = [];
-
 
 
 function createRow (rownumber, number) {
@@ -73,16 +75,31 @@ function createRow (rownumber, number) {
 
 }
 
+function livesDrawing(currentLives) {
+    for (var l = currentLives; l > 0; l--) {
+        lives.push(new Lives(40 * currentLives, canvas.height - 40));
+    };   
+}
+
+
 function renderAll (ctx){
     for (var i = 0; i < objects.length; i++) {
         objects[i].render(ctx);
     }
+
+    lives.forEach(function(live) {
+        live.render(ctx);
+    });
 }
 
 function updateAll (){
     for (var i = 0; i < objects.length; i++) {
         objects[i].update();
     }
+
+    lives.forEach(function(live) {
+        live.update();
+    });
 }
 
 
@@ -99,19 +116,19 @@ function tick(){
     player.movement.down = !!input.down;
     player.update();
     updateAll();
-
 }
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render(ctx);
     renderAll(ctx);
-
 }
 
 for (var i = 0; i < 16; i++) {
     createRow(i,4);
 
 }
+
+livesDrawing(livesCounter);
 
 update();
