@@ -31,6 +31,8 @@ theme.play();
 var livesCounter = 3;
 var lives = [];
 
+var timer = new Timer(canvas.width - 60, canvas.height - 20);
+
 var input = new Input();
 attachListeners(input);
 
@@ -77,7 +79,7 @@ function createRow (rownumber, number) {
 
 function livesDrawing(currentLives) {
     for (var l = currentLives; l > 0; l--) {
-        lives.push(new Lives(40 * currentLives, canvas.height - 40));
+        lives.push(new Lives(40 * l, canvas.height - 40));
     };   
 }
 
@@ -116,12 +118,14 @@ function tick(){
     player.movement.down = !!input.down;
     player.update();
     updateAll();
+    timer.update();
 }
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.render(ctx);
     renderAll(ctx);
+    timer.render(ctx);
 }
 
 for (var i = 0; i < 16; i++) {
