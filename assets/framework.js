@@ -479,6 +479,11 @@ function attachListeners(input) {
         else if (e)
             keycode = e.which;
 
+        //this is for no-page-scrolling with pressed movement keys
+        if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode == 40) {
+            e.preventDefault();
+        }
+
         switch (keycode) {
             case 13:
                 input.enter = true;

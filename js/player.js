@@ -7,7 +7,7 @@ var Player = (function() {
         this.height = 76;
         this.position = new Vector2(x, y);
         this.movement = {left : false, right : false, up : false, down : false}
-        this.velocity = 76;
+        this.velocity = 10;
         this.animation = new Animation(this.width, this.height, 0, 0, 1, 'assets/images/spritemap.png', 1, 0, 0);
 
         //The boundaries for player, check for colide with enemies
@@ -17,14 +17,16 @@ var Player = (function() {
     Player.prototype.update = function () {
         if (this.movement.left) {
             this.position.x  -= this.velocity; //move 1 block to left
+            console.log('left');
         } else if (this.movement.right) {
             this.position.x += this.velocity; // move 1 block to right
-        }
-
-        if (this.movement.up) {
+            console.log('right');
+        }else if (this.movement.up) {
             this.position.y -= this.velocity;
+            console.log('up');
         } else if (this.movement.down) {
             this.position.y += this.velocity;
+            console.log('down');
         }
 
         this.animation.position.set(this.position.x, this.position.y);
