@@ -141,4 +141,10 @@ for (var i = 0; i < 13; i++) {
 
 }
 
+
+
+
 livesDrawing(livesCounter);
+
+
+update();
