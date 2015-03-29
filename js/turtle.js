@@ -5,7 +5,7 @@ var Turtle = (function() {
     function Turtle(x, y) {
         this.width= 40;
         this.height = 40;
-        this.velocity = 3; //1 block
+        this.velocity = 1; //1 block
         this.position = new Vector2(x, y);
 
         this.animation = new Animation(this.width, this.height, 4, 0, 1, 'assets/images/spritemap.png', 1, 0, 0); //we need sprite for turtle here, @param see framework.js

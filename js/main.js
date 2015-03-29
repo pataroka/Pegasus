@@ -23,10 +23,10 @@ var ctx = canvas.getContext('2d');
 //// call on page load
 //Util.message();
 
-theme = document.createElement('audio');
-theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
-theme.setAttribute('loop', 'true');
-theme.play();
+//theme = document.createElement('audio');
+//theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
+//theme.setAttribute('loop', 'true');
+//theme.play();
 
 var livesCounter = 3;
 var lives = [];
@@ -36,6 +36,8 @@ var bonus = new Bonus(canvas.width / 2, canvas.height / 2);
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
 var score = new Score(5, canvas.height - 15);
 
+var lvlModifier = 1;
+
 var input = new Input();
 attachListeners(input);
 
@@ -44,37 +46,37 @@ var player = new Player(240, 560);
 var objects = [];
 
 
-function createRow (rownumber, number) {
-    switch (rownumber){
-        case 2: for (var i = 1; i <= number; i++) {
-            objects.push(new Log(-150*i, rownumber*40));
+function createRow (row, objCount) {
+    switch (row){
+        case 2: for (var i = 1; i <= objCount*4; i++) {
+            objects.push(new LogMedium(-200*i, (row + 1)*40));
         } break;
-        case 3: for (var i = 1; i <= number; i++) {
-            objects.push(new Turtle(600*i, rownumber*40));
+        case 3: for (var i = 1; i <= objCount; i++) {
+            objects.push(new Turtle(600*i, (row + 1)*40));
         } break;
-        case 4: for (var i = 1; i <= number; i++) {
-            objects.push(new Log(-150*i, rownumber*40));
+        case 4: for (var i = 1; i <= objCount*3; i++) {
+            objects.push(new LogLong(-300*i, (row + 1)*40));
         } break;
-        case 5: for (var i = 1; i <= number; i++) {
-            objects.push(new Log(-150*i, rownumber*40));
+        case 5: for (var i = 1; i <= objCount*5; i++) {
+            objects.push(new LogShort(-120*i, (row + 1)*40));
         } break;
-        case 6: for (var i = 1; i <= number; i++) {
-            objects.push(new Turtle(600*i, rownumber*40));
+        case 6: for (var i = 1; i <= objCount; i++) {
+            objects.push(new Turtle(600*i, (row + 1)*40));
         } break;
-        case 9: for (var i = 1; i <= number; i++) {
-            objects.push(new Truck(600*i, rownumber*40));
+        case 8: for (var i = 1; i <= objCount*3; i++) {
+            objects.push(new Truck(480+(240*i), (row + 1)*40));
         } break;
-        case 10: for (var i = 1; i <= number; i++) {
-            objects.push(new Car(-150*i, rownumber*40));
+        case 9: for (var i = 1; i <= objCount; i++) {
+            objects.push(new Car1(-40*i, (row + 1)*40));
         } break;
-        case 11: for (var i = 1; i <= number; i++) {
-            objects.push(new Car(-150*i, rownumber*40));
+        case 10: for (var i = 1; i <= objCount*2; i++) {
+            objects.push(new Car2(480+(160*i), (row + 1)*40));
         } break;
-        case 12: for (var i = 1; i <= number; i++) {
-            objects.push(new Car(-150*i, rownumber*40));
+        case 11: for (var i = 1; i <= objCount*3; i++) {
+            objects.push(new Car3(-160*i, (row + 1)*40));
         } break;
-        case 13: for (var i = 1; i <= number; i++) {
-            objects.push(new Car(-150*i, rownumber*40));
+        case 12: for (var i = 1; i <= objCount*3; i++) {
+            objects.push(new Car4(480+(160*i), (row + 1)*40));
         } break;
     }
 
@@ -137,8 +139,8 @@ function render(){
     score.render(ctx);
 }
 
-for (var i = 0; i < 16; i++) {
-    createRow(i,4);
+for (var i = 0; i < 13; i++) {
+    createRow(i,lvlModifier);
 
 }
 
