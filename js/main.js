@@ -51,31 +51,31 @@ function createRow (row, objCount) {
         case 2: for (var i = 1; i <= objCount*4; i++) {
             objects.push(new LogMedium(-200*i, (row + 1)*40));
         } break;
-        case 3: for (var i = 1; i <= objCount; i++) {
+        case 3: for (i = 1; i <= objCount; i++) {
             objects.push(new Turtle(600*i, (row + 1)*40));
         } break;
-        case 4: for (var i = 1; i <= objCount*3; i++) {
+        case 4: for (i = 1; i <= objCount*3; i++) {
             objects.push(new LogLong(-300*i, (row + 1)*40));
         } break;
-        case 5: for (var i = 1; i <= objCount*5; i++) {
+        case 5: for (i = 1; i <= objCount*5; i++) {
             objects.push(new LogShort(-120*i, (row + 1)*40));
         } break;
-        case 6: for (var i = 1; i <= objCount; i++) {
+        case 6: for (i = 1; i <= objCount; i++) {
             objects.push(new Turtle(600*i, (row + 1)*40));
         } break;
-        case 8: for (var i = 1; i <= objCount*3; i++) {
+        case 8: for (i = 1; i <= objCount*3; i++) {
             objects.push(new Truck(480+(240*i), (row + 1)*40));
         } break;
-        case 9: for (var i = 1; i <= objCount; i++) {
+        case 9: for (i = 1; i <= objCount; i++) {
             objects.push(new Car1(-40*i, (row + 1)*40));
         } break;
-        case 10: for (var i = 1; i <= objCount*2; i++) {
+        case 10: for (i = 1; i <= objCount*2; i++) {
             objects.push(new Car2(480+(160*i), (row + 1)*40));
         } break;
-        case 11: for (var i = 1; i <= objCount*3; i++) {
+        case 11: for (i = 1; i <= objCount*3; i++) {
             objects.push(new Car3(-160*i, (row + 1)*40));
         } break;
-        case 12: for (var i = 1; i <= objCount*3; i++) {
+        case 12: for (i = 1; i <= objCount*3; i++) {
             objects.push(new Car4(480+(160*i), (row + 1)*40));
         } break;
     }
@@ -85,7 +85,7 @@ function createRow (row, objCount) {
 function livesDrawing(currentLives) {
     for (var l = currentLives; l > 0; l--) {
         lives.push(new Lives(40 * (l + 2.5), canvas.height - 40));
-    };   
+    }
 }
 
 
