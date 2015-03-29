@@ -6,7 +6,7 @@ var Player = (function() {
         this.width = 40;
         this.height = 40;
         this.position = new Vector2(x, y);
-        this.movement = {left : false, right : false, up : false, down : false};
+        //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 40;
         this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
 

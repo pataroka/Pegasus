@@ -10,4 +10,12 @@ canvas {
     background: url('../assets/images/gameboard_grid.gif')
 }
 
+#start-button {
+    position: absolute;
+    top: 210px;
+    left: 465px;
+    width: 314px;
+    height: 50px;
+}
+
 

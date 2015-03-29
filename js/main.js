@@ -28,6 +28,9 @@ var ctx = canvas.getContext('2d');
 //theme.setAttribute('loop', 'true');
 //theme.play();
 
+var input = new Input();
+attachListeners(input);
+
 var livesCounter = 3;
 var lives = [];
 
@@ -38,13 +41,9 @@ var score = new Score(5, canvas.height - 15);
 
 var lvlModifier = 1;
 
-var input = new Input();
-attachListeners(input);
-
 var player = new Player(240, 560);
 
 var objects = [];
-
 
 function createRow (row, objCount) {
     switch (row){
@@ -88,7 +87,6 @@ function livesDrawing(currentLives) {
     }
 }
 
-
 function renderAll (ctx){
     for (var i = 0; i < objects.length; i++) {
         objects[i].render(ctx);
@@ -113,7 +111,6 @@ function updateAll (){
     bonus.update();
 }
 
-
 function update(){
     this.tick();
     this.render(ctx);
@@ -121,10 +118,10 @@ function update(){
 }
 
 function tick(){
-    player.movement.right = !!input.right;
-    player.movement.left = !!input.left;
-    player.movement.up = !!input.up;
-    player.movement.down = !!input.down;
+    /*    player.movement.right = !!input.right;
+     player.movement.left = !!input.left;
+     player.movement.up = !!input.up;
+     player.movement.down = !!input.down;*/
     player.update();
     updateAll();
     timer.update();
@@ -145,5 +142,3 @@ for (var i = 0; i < 13; i++) {
 }
 
 livesDrawing(livesCounter);
-
-update();
