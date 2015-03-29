@@ -7,7 +7,7 @@ body {
 }
 
 canvas {
-    background: url('../assets/images/gameboard_grid.gif')
+    background: url('../assets/images/gameboard_grid.gif');
 }
 
 #start-button-clicked > a {
