@@ -1,52 +1,6 @@
 /**
  * Created by usa on 3/24/15.
  */
-var canvas = document.getElementById('game');
-var ctx = canvas.getContext('2d');
-
-//console easter egg for snooping developers
-//var Util = {
-//    is_webkit: function() {
-//        return navigator.userAgent.indexOf("AppleWebKit") > -1;
-//    },
-//    message: function() {
-//        if ( typeof console == "object" ) {
-//            if ( Util.is_webkit() ) {
-//                console.log( "%cHey! What are you looking under here for?\nDeveloped by Team \"PEGASUS\" https://github.com/pataroka/Pegasus", "color: #359AD8; font-size: 18px; font-family: 'Trebuchet MS', Helvetica, sans-serif;" );
-//            } else {
-//                console.log( "Hey! What are you looking under here for?\nDeveloped by Team \"PEGASUS\" https://github.com/pataroka/Pegasus" );
-//            }
-//        }
-//    }
-//}
-//
-//// call on page load
-//Util.message();
-
-//theme = document.createElement('audio');
-//theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
-//theme.setAttribute('loop', 'true');
-//theme.play();
-
-var input = new Input();
-attachListeners(input);
-
-var livesCounter = 3;
-var lives = [];
-
-var posX, posY;
-var bonus = new Bonus(randomCoordinates(), posY);
-
-
-var timer = new Timer(canvas.width - 60, canvas.height - 15);
-var score = new Score(5, canvas.height - 15);
-
-var lvlModifier = 1;
-
-var player = new Player(240, 560);
-
-var objects = [];
-
 function createRow (row, objCount) {
     switch (row){
         case 2: for (var i = 1; i <= objCount*4; i++) {
@@ -148,11 +102,58 @@ function tick(){
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    score.render(ctx);  
+    score.render(ctx);
     renderAll(ctx);
     timer.render(ctx);
     player.render(ctx);
 }
+
+
+var canvas = document.getElementById('game');
+var ctx = canvas.getContext('2d');
+
+//console easter egg for snooping developers
+//var Util = {
+//    is_webkit: function() {
+//        return navigator.userAgent.indexOf("AppleWebKit") > -1;
+//    },
+//    message: function() {
+//        if ( typeof console == "object" ) {
+//            if ( Util.is_webkit() ) {
+//                console.log( "%cHey! What are you looking under here for?\nDeveloped by Team \"PEGASUS\" https://github.com/pataroka/Pegasus", "color: #359AD8; font-size: 18px; font-family: 'Trebuchet MS', Helvetica, sans-serif;" );
+//            } else {
+//                console.log( "Hey! What are you looking under here for?\nDeveloped by Team \"PEGASUS\" https://github.com/pataroka/Pegasus" );
+//            }
+//        }
+//    }
+//}
+//
+//// call on page load
+//Util.message();
+
+//theme = document.createElement('audio');
+//theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
+//theme.setAttribute('loop', 'true');
+//theme.play();
+
+var input = new Input();
+attachListeners(input);
+
+var livesCounter = 3;
+var lives = [];
+
+var posX, posY;
+var bonus = new Bonus(randomCoordinates(), posY);
+
+
+var timer = new Timer(canvas.width - 60, canvas.height - 15);
+var score = new Score(5, canvas.height - 15);
+
+var lvlModifier = 1;
+
+var player = new Player(240, 560);
+
+var objects = [];
 
 for (var i = 0; i < 13; i++) {
     createRow(i,lvlModifier);

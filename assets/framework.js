@@ -492,7 +492,12 @@ function attachListeners(input) {
                 input.space = true;
                 break;
             case 37:
-                player.position.x -= player.velocity;
+                if ((player.position.x -= 40) < 10){
+                    player.position.x = 440;
+                } else {
+                    player.position.x -= player.velocity;
+                }
+                console.log(player.position);
                 //input.left = true;
                 break;
             case 38:
@@ -500,7 +505,12 @@ function attachListeners(input) {
                 //input.up = true;
                 break;
             case 39:
-                player.position.x += player.velocity;
+                if ((player.position.x += player.velocity) > 470){
+                    player.position.x = 0;
+                } else {
+                    player.position.x += player.velocity;
+                }
+                console.log(player.position);
                 //input.right = true;
                 break;
             case 40:
