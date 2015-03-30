@@ -47,7 +47,6 @@ function randomCoordinates() {
     var zone = Math.floor(Math.random() * 2);
     var row = Math.floor(Math.random() * 4);
     var col = Math.floor((Math.random() * 11) + 1);
-
     posX = col * 40;
 
     if (zone) {
@@ -55,7 +54,6 @@ function randomCoordinates() {
     } else {
         posY = 360 + row * 40;
     }
-
     return posX;
 }
 
@@ -159,7 +157,6 @@ var lives = [];
 var posX, posY;
 var bonus = new Bonus(randomCoordinates(), posY);
 
-
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
 var score = new Score(5, canvas.height - 15);
 
@@ -171,14 +168,8 @@ var objects = [];
 
 for (var i = 0; i < 13; i++) {
     createRow(i,lvlModifier);
-
 }
-
-
-
 
 livesDrawing(livesCounter);
 
-
 main();
-

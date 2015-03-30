@@ -3,12 +3,24 @@
 var Score = (function() {
 	function Score(x, y) {
 		this.position = new Vector2(x, y);
-		this.scoreCounter = 777;
-
+		this.scoreCounter = 0;
+		this.charPosition;
+		this.zoneOneReached = false;
+		this.zoneTwoReached = false;
 	}
 
 	Score.prototype.update = function() {
-		
+		// this.charPosition = this.playerY / 40;
+		// console.log(this.playerY);
+		// if ((this.charPosition >= 8 && this.charPosition < 9) && !this.zoneOneReached) {
+		// 	this.scoreCounter += 100;
+		// 	this.zoneOneReached = true;
+		// };
+
+		// if ((this.charPosition >= 4 && this.charPosition < 5) && !this.zoneTwoReached) {
+		// 	this.scoreCounter += 100;
+		// 	this.zoneTwoReached = true;
+		// };
 	}
 
 	Score.prototype.render = function(ctx) {
