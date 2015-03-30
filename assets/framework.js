@@ -492,29 +492,39 @@ function attachListeners(input) {
                 input.space = true;
                 break;
             case 37:
-                if ((player.position.x -= 40) < 10){
-                    player.position.x = 440;
+                if ((player.position.x -= 40) < -6){
+                    player.position.x = 445;
                 } else {
-                    player.position.x -= player.velocity;
+                    player.position.x -= player.velocity * pdt;
                 }
                 console.log(player.position);
                 //input.left = true;
                 break;
             case 38:
-                player.position.y -= player.velocity;
+                if ((player.position.y -= 40) < 80){
+                    player.position.y = 80.6;
+                } else {
+                    player.position.y -= (player.velocity * pdt)-1;
+                }
+                console.log(player.position);
                 //input.up = true;
                 break;
             case 39:
-                if ((player.position.x += player.velocity) > 470){
-                    player.position.x = 0;
+                if ((player.position.x += 40) > 478){
+                    player.position.x = -1;
                 } else {
-                    player.position.x += player.velocity;
+                    player.position.x += player.velocity * pdt;
                 }
                 console.log(player.position);
                 //input.right = true;
                 break;
             case 40:
-                player.position.y += player.velocity;
+                if ((player.position.y += 40) > 560){
+                    player.position.y = 560;
+                } else {
+                    player.position.y += (player.velocity * pdt)-1;
+                }
+                console.log(player.position);
                 //input.down = true;
                 break;
             case 65:

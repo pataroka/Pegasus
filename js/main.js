@@ -83,21 +83,22 @@ function updateAll (){
     });
 }
 
-function update(){
-    this.tick();
+function update(dt){
+    this.tick(dt);
     this.render(ctx);
-    requestAnimationFrame(update);
+    //requestAnimationFrame(update);
+
 }
 
-function tick(){
-    /*    player.movement.right = !!input.right;
-     player.movement.left = !!input.left;
-     player.movement.up = !!input.up;
-     player.movement.down = !!input.down;*/
+function tick(dt){
+     //player.movement.right = !!input.right;
+     //player.movement.left = !!input.left;
+     //player.movement.up = !!input.up;
+     //player.movement.down = !!input.down;
     score.update();
     updateAll();
     timer.update();
-    player.update();
+    player.update(dt);
 }
 
 function render(){
@@ -108,9 +109,22 @@ function render(){
     player.render(ctx);
 }
 
+var lastTime;
+var pdt;
+function main() {
+    var now = Date.now();
+    var dt = pdt = (now - lastTime) / 1000.0;
+
+    update(dt);
+
+    lastTime = now;
+    requestAnimationFrame(main);
+}
 
 var canvas = document.getElementById('game');
 var ctx = canvas.getContext('2d');
+
+
 
 //console easter egg for snooping developers
 //var Util = {
@@ -151,7 +165,7 @@ var score = new Score(5, canvas.height - 15);
 
 var lvlModifier = 1;
 
-var player = new Player(240, 560);
+var player = new Player(248, 560, pdt);
 
 var objects = [];
 
@@ -166,4 +180,5 @@ for (var i = 0; i < 13; i++) {
 livesDrawing(livesCounter);
 
 
-update();
+main();
+
