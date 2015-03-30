@@ -34,7 +34,9 @@ attachListeners(input);
 var livesCounter = 3;
 var lives = [];
 
-var bonus = new Bonus(canvas.width / 2, canvas.height / 2);
+var posX, posY;
+var bonus = new Bonus(randomCoordinates(), posY);
+
 
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
 var score = new Score(5, canvas.height - 15);
@@ -87,7 +89,25 @@ function livesDrawing(currentLives) {
     }
 }
 
+function randomCoordinates() {
+    var zone = Math.floor(Math.random() * 2);
+    var row = Math.floor(Math.random() * 4);
+    var col = Math.floor((Math.random() * 11) + 1);
+
+    posX = col * 40;
+
+    if (zone) {
+        posY = 120 + row * 40;
+    } else {
+        posY = 360 + row * 40;
+    }
+
+    return posX;
+}
+
 function renderAll (ctx){
+    bonus.render(ctx);
+
     for (var i = 0; i < objects.length; i++) {
         objects[i].render(ctx);
     }
@@ -95,11 +115,11 @@ function renderAll (ctx){
     lives.forEach(function(live) {
         live.render(ctx);
     });
-
-    bonus.render(ctx);
 }
 
 function updateAll (){
+    bonus.update();
+
     for (var i = 0; i < objects.length; i++) {
         objects[i].update();
     }
@@ -107,8 +127,6 @@ function updateAll (){
     lives.forEach(function(live) {
         live.update();
     });
-
-    bonus.update();
 }
 
 function update(){
@@ -122,18 +140,18 @@ function tick(){
      player.movement.left = !!input.left;
      player.movement.up = !!input.up;
      player.movement.down = !!input.down;*/
-    player.update();
+    score.update();
     updateAll();
     timer.update();
-    score.update();
+    player.update();
 }
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.render(ctx);
+    score.render(ctx);  
     renderAll(ctx);
     timer.render(ctx);
-    score.render(ctx);
+    player.render(ctx);
 }
 
 for (var i = 0; i < 13; i++) {
