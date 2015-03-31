@@ -13,7 +13,9 @@ var FrogOnObject = (function() {
 				
 				if(Math.floor(element.position.y / 40) == 4 
 				   || Math.floor(element.position.y / 40) == 7) {
-					player.position.x -= element.velocity;
+				   	if (element.animation.cropPostion.x != 306) {
+				   		player.position.x -= element.velocity;
+				   	};				
 				} else {
 					player.position.x += element.velocity;
 				}

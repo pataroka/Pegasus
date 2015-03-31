@@ -19,7 +19,7 @@ var Turtle = (function() {
         this.boundingBox.x = this.position.x;
         this.boundingBox.y = this.position.y;
         this.animation.update();
-        if (this.position.x < 0){
+        if (this.position.x < -100){
             this.position.x = 600;
             this.animation.position.set(this.position.x, this.position.y);
             this.boundingBox.x = this.position.x;
