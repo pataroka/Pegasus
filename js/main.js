@@ -60,6 +60,10 @@ function randomCoordinates() {
 function renderAll (ctx){
     bonus.render(ctx);
 
+    houses.forEach(function(house) {
+        house.render(ctx);
+    });
+
     for (var i = 0; i < roadObjects.length; i++) {
         roadObjects[i].render(ctx);
     }
@@ -75,6 +79,10 @@ function renderAll (ctx){
 
 function updateAll (){
     bonus.update();
+
+    houses.forEach(function(house) {
+        house.update();
+    });
 
     for (var i = 0; i < roadObjects.length; i++) {
         roadObjects[i].update();
@@ -158,6 +166,8 @@ var ctx = canvas.getContext('2d');
 
 var input = new Input();
 attachListeners(input);
+
+var houses = [new House(63, 70), new House(164, 70), new House(268, 70), new House(368, 70)];
 
 var livesCounter = 3;
 var lives = [];
