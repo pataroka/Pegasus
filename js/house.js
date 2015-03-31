@@ -15,11 +15,16 @@ var House = (function() {
 		this.animation.position.set(this.position.x, this.position.y);
 		this.animation.update();
 
-		if (this.boundingBox.intersects(player.boundingBox) 
-			&& (player.position.x >= this.position.x - 20 
-			&& player.position.x <= this.position.x + 40)) {
-			this.houseReached = true;
-		};
+		if (this.houseReached) {
+			
+		} else {
+			if (this.boundingBox.intersects(player.boundingBox) 
+				&& (player.position.x >= this.position.x - 20 
+				&& player.position.x <= this.position.x + 40)) {
+				this.houseReached = true;
+				score.scoreCounter += 200;
+			};
+		}
 	}
 
 	House.prototype.render = function(ctx) {

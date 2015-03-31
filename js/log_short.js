@@ -7,6 +7,7 @@ var LogShort = (function() {
         this.height = 40;
         this.velocity = 2; //1 block
         this.position = new Vector2(x, y);
+        this.rided = false;
 
         this.animation = new Animation(this.width, this.height, 2, 0, 1, 'assets/images/spritemap.png', 1, 0, 0); //we need sprite for log here, @param see framework.js
 
@@ -25,6 +26,9 @@ var LogShort = (function() {
             this.boundingBox.x = this.position.x;
             this.boundingBox.y = this.position.y;
             this.animation.update();
+            if (this.rided) {
+                player.position.x -= 600;
+            };
         }
     };
 

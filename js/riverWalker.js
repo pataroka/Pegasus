@@ -2,32 +2,26 @@
 
 var FrogOnObject = (function() {
 	function FrogOnObject() {
-	
+		
 	}
 	
 	FrogOnObject.prototype.update = function() {
 		riverObjects.forEach(function(element){
+			element.rided = false;
 			if(element.boundingBox.intersects(player.boundingBox) 
 			  && ((element.position.y <= player.position.y + 5) && 
 			  (element.position.y >= player.position.y - 5))) {
-				
+				element.rided = true;
 				if(Math.floor(element.position.y / 40) == 4 
 				   || Math.floor(element.position.y / 40) == 7) {
 				   	if (element.animation.cropPostion.x != 306) {
 				   		player.position.x -= element.velocity;
 				   	};				
 				} else {
-					player.position.x += element.velocity;
+						player.position.x += element.velocity;
 				}
-				if(player.position.x >= 480) {
-					player.position.x -= 480;
-					player.boundingBox.x = player.position.x;
-				}
-				
-				if(player.position.x <= 0) {
-					player.position.x += 440;
-					player.boundingBox.x = player.position.x;
-				}
+
+				player.boundingBox.x = player.position.x;
 			}
 		});
 	}
