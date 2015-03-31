@@ -16,14 +16,14 @@ var Car1 = (function() {
     Car1.prototype.update = function () {
         this.position.x += this.velocity;
         this.animation.position.set(this.position.x, this.position.y);
-        this.boundingBox.x = this.position.x;
-        this.boundingBox.y = this.position.y;
+        this.boundingBox.x = this.position.x - 5;
+        this.boundingBox.y = this.position.y - 5;
         this.animation.update();
         if (this.position.x > 480){
             this.position.x = -100;
             this.animation.position.set(this.position.x, this.position.y);
-            this.boundingBox.x = this.position.x;
-            this.boundingBox.y = this.position.y;
+            this.boundingBox.x = this.position.x - 5;
+            this.boundingBox.y = this.position.y - 5;
             this.animation.update();
         }
     };

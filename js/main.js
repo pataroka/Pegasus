@@ -86,6 +86,9 @@ function updateAll (){
 
     for (var i = 0; i < roadObjects.length; i++) {
         roadObjects[i].update();
+        if (roadObjects[i].boundingBox.intersects(player.boundingBox)) {
+            player.dead = true;
+        }
     }
 	
 	for (var i = 0; i < riverObjects.length; i++) {
@@ -111,7 +114,9 @@ function tick(dt){
      //player.movement.down = !!input.down;
     updateAll();
     timer.update();
-    player.update(dt);
+    if (!player.dead) {
+        player.update(dt);
+    }
 	frogOnObject.update();
 	score.update();
 }

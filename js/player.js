@@ -5,6 +5,7 @@ var Player = (function() {
     function Player(x, y, pdt) {
         this.width = 40;
         this.height = 40;
+        this.dead = false;
         this.position = new Vector2(x, y);
         //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 38;
