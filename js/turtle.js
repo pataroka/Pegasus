@@ -7,6 +7,7 @@ var Turtle = (function() {
         this.height = 40;
         this.velocity = 1; //1 block
         this.position = new Vector2(x, y);
+        this.rided = false;
 
         this.animation = new Animation(this.width, this.height, 4, 0, 4, 'assets/images/spritemap.png', 0.5, 4, 1); //we need sprite for turtle here, @param see framework.js
 
@@ -25,6 +26,9 @@ var Turtle = (function() {
             this.boundingBox.x = this.position.x;
             this.boundingBox.y = this.position.y;
             this.animation.update();
+            if (this.rided) {
+                player.position.x -= 600;
+            };
         }
     };
 

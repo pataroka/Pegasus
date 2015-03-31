@@ -7,6 +7,7 @@ var LogMedium = (function() {
         this.height = 40;
         this.velocity = 1.5; //1 block
         this.position = new Vector2(x, y);
+        this.rided = false;
 
         this.animation = new Animation(this.width, this.height, 3, 0, 1, 'assets/images/spritemap.png', 1, 3, 1); //we need sprite for log here, @param see framework.js
 
@@ -25,6 +26,9 @@ var LogMedium = (function() {
             this.boundingBox.x = this.position.x;
             this.boundingBox.y = this.position.y;
             this.animation.update();
+            if (this.rided) {
+                player.position.x -= 800;
+            };
         }
     };
 
