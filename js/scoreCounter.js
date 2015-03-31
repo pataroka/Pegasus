@@ -10,17 +10,16 @@ var Score = (function() {
 	}
 
 	Score.prototype.update = function() {
-		// this.charPosition = this.playerY / 40;
-		// console.log(this.playerY);
-		// if ((this.charPosition >= 8 && this.charPosition < 9) && !this.zoneOneReached) {
-		// 	this.scoreCounter += 100;
-		// 	this.zoneOneReached = true;
-		// };
+		this.charPosition = player.position.y / 40;
+		if ((this.charPosition >= 8 && this.charPosition < 9) && !this.zoneOneReached) {
+		this.scoreCounter += 100;
+		this.zoneOneReached = true;
+		};
 
-		// if ((this.charPosition >= 4 && this.charPosition < 5) && !this.zoneTwoReached) {
-		// 	this.scoreCounter += 100;
-		// 	this.zoneTwoReached = true;
-		// };
+		if ((this.charPosition >= 4 && this.charPosition < 5) && !this.zoneTwoReached) {
+		this.scoreCounter += 100;
+		this.zoneTwoReached = true;
+		};
 	}
 
 	Score.prototype.render = function(ctx) {

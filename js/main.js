@@ -4,34 +4,34 @@
 function createRow (row, objCount) {
     switch (row){
         case 2: for (var i = 1; i <= objCount*4; i++) {
-            objects.push(new LogMedium(-200*i, (row + 1)*40));
+            riverObjects.push(new LogMedium(-200*i, (row + 1)*40));
         } break;
         case 3: for (i = 1; i <= objCount; i++) {
-            objects.push(new Turtle(600*i, (row + 1)*40));
+            riverObjects.push(new Turtle(600*i, (row + 1)*40));
         } break;
         case 4: for (i = 1; i <= objCount*3; i++) {
-            objects.push(new LogLong(-300*i, (row + 1)*40));
+            riverObjects.push(new LogLong(-300*i, (row + 1)*40));
         } break;
         case 5: for (i = 1; i <= objCount*5; i++) {
-            objects.push(new LogShort(-120*i, (row + 1)*40));
+            riverObjects.push(new LogShort(-120*i, (row + 1)*40));
         } break;
         case 6: for (i = 1; i <= objCount; i++) {
-            objects.push(new Turtle(600*i, (row + 1)*40));
+            riverObjects.push(new Turtle(600*i, (row + 1)*40));
         } break;
         case 8: for (i = 1; i <= objCount*3; i++) {
-            objects.push(new Truck(480+(240*i), (row + 1)*40));
+            roadObjects.push(new Truck(480+(240*i), (row + 1)*40));
         } break;
         case 9: for (i = 1; i <= objCount; i++) {
-            objects.push(new Car1(-40*i, (row + 1)*40));
+            roadObjects.push(new Car1(-40*i, (row + 1)*40));
         } break;
         case 10: for (i = 1; i <= objCount*2; i++) {
-            objects.push(new Car2(480+(160*i), (row + 1)*40));
+            roadObjects.push(new Car2(480+(160*i), (row + 1)*40));
         } break;
         case 11: for (i = 1; i <= objCount*3; i++) {
-            objects.push(new Car3(-160*i, (row + 1)*40));
+            roadObjects.push(new Car3(-160*i, (row + 1)*40));
         } break;
         case 12: for (i = 1; i <= objCount*3; i++) {
-            objects.push(new Car4(480+(160*i), (row + 1)*40));
+            roadObjects.push(new Car4(480+(160*i), (row + 1)*40));
         } break;
     }
 
@@ -60,8 +60,12 @@ function randomCoordinates() {
 function renderAll (ctx){
     bonus.render(ctx);
 
-    for (var i = 0; i < objects.length; i++) {
-        objects[i].render(ctx);
+    for (var i = 0; i < roadObjects.length; i++) {
+        roadObjects[i].render(ctx);
+    }
+	
+	for (var i = 0; i < riverObjects.length; i++) {
+        riverObjects[i].render(ctx);
     }
 
     lives.forEach(function(live) {
@@ -72,8 +76,12 @@ function renderAll (ctx){
 function updateAll (){
     bonus.update();
 
-    for (var i = 0; i < objects.length; i++) {
-        objects[i].update();
+    for (var i = 0; i < roadObjects.length; i++) {
+        roadObjects[i].update();
+    }
+	
+	for (var i = 0; i < riverObjects.length; i++) {
+        riverObjects[i].update();
     }
 
     lives.forEach(function(live) {
@@ -93,18 +101,19 @@ function tick(dt){
      //player.movement.left = !!input.left;
      //player.movement.up = !!input.up;
      //player.movement.down = !!input.down;
-    score.update();
     updateAll();
     timer.update();
     player.update(dt);
+	frogOnObject.update();
+	score.update();
 }
 
 function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    score.render(ctx);
     renderAll(ctx);
     timer.render(ctx);
     player.render(ctx);
+	score.render(ctx);
 }
 
 var lastTime;
@@ -121,7 +130,6 @@ function main() {
 
 var canvas = document.getElementById('game');
 var ctx = canvas.getContext('2d');
-
 
 
 //console easter egg for snooping developers
@@ -157,6 +165,8 @@ var lives = [];
 var posX, posY;
 var bonus = new Bonus(randomCoordinates(), posY);
 
+var frogOnObject = new FrogOnObject();
+
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
 var score = new Score(5, canvas.height - 15);
 
@@ -164,7 +174,8 @@ var lvlModifier = 1;
 
 var player = new Player(248, 560, pdt);
 
-var objects = [];
+var roadObjects = [];
+var riverObjects = [];
 
 for (var i = 0; i < 13; i++) {
     createRow(i,lvlModifier);
