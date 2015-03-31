@@ -16,7 +16,7 @@ var Score = (function() {
 		this.zoneOneReached = true;
 		};
 
-		if ((this.charPosition >= 4 && this.charPosition < 5) && !this.zoneTwoReached) {
+		if ((this.charPosition >= 3 && this.charPosition < 4) && !this.zoneTwoReached) {
 		this.scoreCounter += 100;
 		this.zoneTwoReached = true;
 		};

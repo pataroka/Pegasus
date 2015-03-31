@@ -18,7 +18,7 @@ var FrogOnObject = (function() {
 					player.position.x += element.velocity;
 				}
 				if(player.position.x >= 480) {
-					player.position.x -= 475;
+					player.position.x -= 480;
 					player.boundingBox.x = player.position.x;
 				}
 				

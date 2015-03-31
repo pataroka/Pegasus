@@ -6,7 +6,8 @@ var Timer = (function() {
 		this.startingTime = new Date();
 		this.startingTimer = (this.startingTime.getHours() * 360
 			+ this.startingTime.getMinutes() * 60
-			+ this.startingTime.getSeconds());		
+			+ this.startingTime.getSeconds());
+		this.countDown = 59;
 	}
 
 	Timer.prototype.update = function() {
@@ -15,20 +16,21 @@ var Timer = (function() {
 			+ this.currentTime.getMinutes() * 60
 			+ this.currentTime.getSeconds());
 
-		this.timerMinutes = Math.floor((this.currentTimer - this.startingTimer) / 60);
+		// this.timerMinutes = Math.floor((this.currentTimer - this.startingTimer) / 60);
 		this.timerSeconds = (this.currentTimer - this.startingTimer) % 60;
-		if (this.timerSeconds < 10) {
-			this.timerText = this.timerMinutes.toFixed(0) + ":0" + this.timerSeconds.toFixed(0);
+		// if (this.timerSeconds < 10) {
+		// 	this.timerText = this.timerMinutes.toFixed(0) + ":0" + this.timerSeconds.toFixed(0);
 			
-		} else {
-			this.timerText = this.timerMinutes.toFixed(0) + ":" + this.timerSeconds.toFixed(0);
-		}
+		// } else {
+		// 	this.timerText = this.timerMinutes.toFixed(0) + ":" + this.timerSeconds.toFixed(0);
+		// }
+		this.timerText = "time: " + (this.countDown - this.timerSeconds);
 	}
 
 	Timer.prototype.render = function(ctx) {
 		ctx.fillStyle = "green";
 		ctx.font = "26px sen-serif";
-		ctx.fillText(this.timerText, this.position.x, this.position.y);
+		ctx.fillText(this.timerText, this.position.x - 40, this.position.y);
 	};
 
 	return Timer;
