@@ -8,6 +8,8 @@ function createRow (row, objCount) {
         } break;
         case 3: for (i = 1; i <= objCount; i++) {
             riverObjects.push(new Turtle(600*i, (row + 1)*40));
+            riverObjects.push(new Turtle(640*i, (row + 1)*40));
+            riverObjects.push(new Turtle(680*i, (row + 1)*40));
         } break;
         case 4: for (i = 1; i <= objCount*3; i++) {
             riverObjects.push(new LogLong(-300*i, (row + 1)*40));
@@ -17,6 +19,8 @@ function createRow (row, objCount) {
         } break;
         case 6: for (i = 1; i <= objCount; i++) {
             riverObjects.push(new Turtle(600*i, (row + 1)*40));
+            riverObjects.push(new Turtle(640*i, (row + 1)*40));
+            riverObjects.push(new Turtle(680*i, (row + 1)*40));
         } break;
         case 8: for (i = 1; i <= objCount*3; i++) {
             roadObjects.push(new Truck(480+(240*i), (row + 1)*40));
