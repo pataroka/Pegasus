@@ -3,12 +3,12 @@
  */
 var Turtle = (function() {
     function Turtle(x, y) {
-        this.width= 40;
+        this.width= 102;
         this.height = 40;
         this.velocity = 1; //1 block
         this.position = new Vector2(x, y);
 
-        this.animation = new Animation(this.width, this.height, 4, 0, 1, 'assets/images/spritemap.png', 1, 0, 0); //we need sprite for turtle here, @param see framework.js
+        this.animation = new Animation(this.width, this.height, 4, 0, 4, 'assets/images/spritemap.png', 0.5, 4, 1); //we need sprite for turtle here, @param see framework.js
 
         this.boundingBox = new Rectangle(x, y, this.width, this.height); //The boundaries of the object to check collision with player
     }
