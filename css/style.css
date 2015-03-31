@@ -11,9 +11,9 @@ canvas {
 }
 
 #start-button-clicked > a {
-    position: fixed;
-    top: 30%;
-    left: 32%;
+    position: absolute;
+    top: 150px;
+    left: 380px;
 }
 
 
