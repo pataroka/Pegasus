@@ -21,8 +21,8 @@ var House = (function() {
 			if (this.boundingBox.intersects(player.boundingBox) 
 				&& (player.position.x >= this.position.x - 20 
 				&& player.position.x <= this.position.x + 40)) {
-				this.housesReached = true;
-                player.houseReached += 1;
+				this.houseReached = true;
+                player.housesReached += 1;
 				score.scoreCounter += 200;
 			};
 		}
