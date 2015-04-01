@@ -2,7 +2,7 @@
  * Created by usa on 3/25/15.
  */
 var Player = (function() {
-    function Player(x, y, pdt) {
+    function Player(x, y) {
         this.width = 40;
         this.height = 40;
         this.dead = false;
@@ -12,7 +12,7 @@ var Player = (function() {
         this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
 
         //The boundaries for player, check for colide with enemies
-        this.boundingBox = new Rectangle(x-2, y-2, this.width-5, this.height-5);
+        this.boundingBox = new Rectangle(x+2, y+2, this.width-4, this.height-4);
     }
 
     Player.prototype.update = function () {
@@ -34,8 +34,8 @@ var Player = (function() {
             this.velocity = 0;
         }
         this.animation.position.set(this.position.x, this.position.y);
-        this.boundingBox.x = this.position.x-2;
-        this.boundingBox.y = this.position.y-2;
+        this.boundingBox.x = this.position.x+2;
+        this.boundingBox.y = this.position.y+2;
         this.animation.update();
     };
 
