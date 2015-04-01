@@ -95,6 +95,8 @@ function updateAll (){
     for (var i = 0; i < player.livesCount; i++) {
         lives[i].update();
     }
+
+    river.update();
 }
 
 function frogDead() {
@@ -186,6 +188,8 @@ var bonus = new Bonus(randomCoordinates(), posY);
 
 var mounted = false;
 var frogOnObject = new FrogOnObject();
+
+var river = new River();
 
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
 var score = new Score(5, canvas.height - 15);

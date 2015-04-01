@@ -9,10 +9,10 @@ var FrogOnObject = (function() {
 		riverObjects.forEach(function(element){
 			element.rided = false;
 			if(element.boundingBox.intersects(player.boundingBox) 
-			  && ((element.position.y <= player.position.y + 5) && 
-			  (element.position.y >= player.position.y - 5)) 
-			  && ((element.position.x <= player.position.x + 5) && 
-			  (element.position.x  + element.width - 40 >= player.position.x - 5))) {
+			  && ((element.position.y <= player.position.y + 10) && 
+			  (element.position.y >= player.position.y - 10)) 
+			  && ((element.position.x <= player.position.x + 10) && 
+			  (element.position.x  + element.width - 40 >= player.position.x - 10))) {
 				element.rided = true;
 				if(Math.floor(element.position.y / 40) == 4 
 				   || Math.floor(element.position.y / 40) == 7) {
@@ -26,7 +26,7 @@ var FrogOnObject = (function() {
 						player.position.x += element.velocity;
 				}
 
-				player.boundingBox.x = player.position.x;
+				player.boundingBox.x = player.position.x + 6;
 			}
 		});
 	}
