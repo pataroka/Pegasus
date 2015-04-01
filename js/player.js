@@ -33,6 +33,7 @@ var Player = (function() {
 		if (this.dead){
 			this.animation = new Animation(this.width, this.height, 0, 10, 1, 'assets/images/spritemap.png', 1, 11, 1);
 			this.velocity = 0;
+            alert("You lost a life! Be careful, you have " + this.livesCount + "lives remaining!")
         }
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x+2;
