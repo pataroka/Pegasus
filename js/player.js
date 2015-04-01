@@ -12,7 +12,7 @@ var Player = (function() {
         this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
 
         //The boundaries for player, check for colide with enemies
-        this.boundingBox = new Rectangle(x, y, this.width, this.height);
+        this.boundingBox = new Rectangle(x-2, y-2, this.width-5, this.height-5);
     }
 
     Player.prototype.update = function () {
@@ -29,10 +29,13 @@ var Player = (function() {
         //    this.position.y += this.velocity * dt;
         //    console.log('down');
         //}
-
+        if (this.dead){
+            this.animation = new Animation(this.width, this.height, 0, 10, 1, 'assets/images/spritemap.png', 1, 11, 1);
+            this.velocity = 0;
+        }
         this.animation.position.set(this.position.x, this.position.y);
-        this.boundingBox.x = this.position.x;
-        this.boundingBox.y = this.position.y;
+        this.boundingBox.x = this.position.x-2;
+        this.boundingBox.y = this.position.y-2;
         this.animation.update();
     };
 

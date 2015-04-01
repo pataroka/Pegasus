@@ -86,9 +86,6 @@ function updateAll (){
 
     for (var i = 0; i < roadObjects.length; i++) {
         roadObjects[i].update();
-        if (roadObjects[i].boundingBox.intersects(player.boundingBox)) {
-            player.dead = true;
-        }
     }
 	
 	for (var i = 0; i < riverObjects.length; i++) {
@@ -98,6 +95,23 @@ function updateAll (){
     lives.forEach(function(live) {
         live.update();
     });
+}
+
+function frogDead() {
+    player.dead = false;
+    roadObjects.forEach(function(object){
+        if(object.boundingBox.intersects(player.boundingBox)){
+            player.dead = true;
+        }
+    });
+    if (player.position.y < 281) {
+        riverObjects.forEach(function (object) {
+            if (!mounted) {
+                player.dead = true;
+            }
+        });
+    }
+    return player.dead;
 }
 
 function update(dt){
@@ -114,10 +128,9 @@ function tick(dt){
      //player.movement.down = !!input.down;
     updateAll();
     timer.update();
-    if (!player.dead) {
-        player.update(dt);
-    }
-	frogOnObject.update();
+    frogOnObject.update();
+    frogDead();
+    player.update(dt);
 	score.update();
 }
 
@@ -180,6 +193,7 @@ var lives = [];
 var posX, posY;
 var bonus = new Bonus(randomCoordinates(), posY);
 
+var mounted = false;
 var frogOnObject = new FrogOnObject();
 
 var timer = new Timer(canvas.width - 60, canvas.height - 15);
