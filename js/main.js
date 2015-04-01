@@ -6,8 +6,8 @@ function createRow (row, objCount) {
         case 2: for (var i = 1; i <= objCount*4; i++) {
             riverObjects.push(new LogMedium(-200*i, (row + 1)*40));
         } break;
-        case 3: for (i = 1; i <= objCount; i++) {
-            riverObjects.push(new Turtle(600*i, (row + 1)*40));
+        case 3: for (i = 1; i <= objCount*3; i++) {
+            riverObjects.push(new Turtle(240+(240*i), (row + 1)*40));
         } break;
         case 4: for (i = 1; i <= objCount*3; i++) {
             riverObjects.push(new LogLong(-300*i, (row + 1)*40));
@@ -15,8 +15,8 @@ function createRow (row, objCount) {
         case 5: for (i = 1; i <= objCount*5; i++) {
             riverObjects.push(new LogShort(-120*i, (row + 1)*40));
         } break;
-        case 6: for (i = 1; i <= objCount; i++) {
-            riverObjects.push(new Turtle(600*i, (row + 1)*40));
+        case 6: for (i = 1; i <= objCount*3; i++) {
+            riverObjects.push(new Turtle(240+(240*i), (row + 1)*40));
         } break;
         case 8: for (i = 1; i <= objCount*3; i++) {
             roadObjects.push(new Truck(480+(240*i), (row + 1)*40));
@@ -104,11 +104,10 @@ function frogDead() {
         }
     });
     if (player.position.y < 281) {
-        riverObjects.forEach(function (object) {
-            if (!mounted) {
-                player.dead = true;
-            }
-        });
+        if (!mounted) {
+            player.dead = true;
+        }
+
     }
     return player.dead;
 }
