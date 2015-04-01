@@ -30,15 +30,8 @@ var Lives = (function() {
 			+ timer.currentTime.getSeconds());
 		};
 		if(player.livesCount == 0) {
-			/*player.livesCount = 3;
-			score = new Score(5, canvas.height - 15);*/
-            alert("Game Over! Try Again!");
 			window.location.href = 'index.html';
 		}
-        if (player.housesReached == 4){
-            alert("Congratulations! Mission accomplished!");
-            window.location.href = 'index.html';
-        }
 	};
 
 	Lives.prototype.render = function(ctx) {
