@@ -27,7 +27,7 @@ var Turtle = (function() {
             this.boundingBox.y = this.position.y+2;
             this.animation.update();
             if (this.rided) {
-                player.position.x -= 600;
+                player.position.x += 720;
             }
         }
     };

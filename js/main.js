@@ -103,12 +103,6 @@ function frogDead() {
             player.dead = true;
         }
     });
-    if (player.position.y < 281) {
-        if (!mounted) {
-            player.dead = true;
-        }
-
-    }
     return player.dead;
 }
 

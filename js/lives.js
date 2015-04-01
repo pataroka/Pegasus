@@ -30,8 +30,6 @@ var Lives = (function() {
 			+ timer.currentTime.getSeconds());
 		};
 		if(player.livesCount == 0) {
-			/*player.livesCount = 3;
-			score = new Score(5, canvas.height - 15);*/
 			window.location.href = 'index.html';
 		}
 	};
