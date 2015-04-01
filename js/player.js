@@ -33,6 +33,7 @@ var Player = (function() {
         if (this.dead){
             this.animation = new Animation(this.width, this.height, 0, 10, 1, 'assets/images/spritemap.png', 1, 11, 1);
             this.velocity = 0;
+			
         }
         this.animation.position.set(this.position.x, this.position.y);
         this.boundingBox.x = this.position.x+2;

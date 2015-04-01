@@ -29,6 +29,10 @@ var Lives = (function() {
 			+ timer.currentTime.getMinutes() * 60
 			+ timer.currentTime.getSeconds());
 		};
+		if(player.livesCount == 0) {
+			player.livesCount = 3;
+			score = new Score(5, canvas.height - 15);
+		}
 	};
 
 	Lives.prototype.render = function(ctx) {
