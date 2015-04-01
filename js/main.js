@@ -72,9 +72,9 @@ function renderAll (ctx){
         riverObjects[i].render(ctx);
     }
 
-    lives.forEach(function(live) {
-        live.render(ctx);
-    });
+    for (var i = 0; i < player.livesCount; i++) {
+        lives[i].render(ctx);
+    }
 }
 
 function updateAll (){
@@ -92,13 +92,12 @@ function updateAll (){
         riverObjects[i].update();
     }
 
-    lives.forEach(function(live) {
-        live.update();
-    });
+    for (var i = 0; i < player.livesCount; i++) {
+        lives[i].update();
+    }
 }
 
 function frogDead() {
-    player.dead = false;
     roadObjects.forEach(function(object){
         if(object.boundingBox.intersects(player.boundingBox)){
             player.dead = true;
@@ -187,7 +186,6 @@ attachListeners(input);
 
 var houses = [new House(63, 70), new House(164, 70), new House(268, 70), new House(368, 70)];
 
-var livesCounter = 3;
 var lives = [];
 
 var posX, posY;
@@ -210,6 +208,7 @@ for (var i = 0; i < 13; i++) {
     createRow(i,lvlModifier);
 }
 
-livesDrawing(livesCounter);
+livesDrawing(player.livesCount);
+
 
 main();

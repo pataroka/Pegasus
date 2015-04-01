@@ -12,6 +12,23 @@ var Lives = (function() {
 	Lives.prototype.update = function() {
 		this.animation.position.set(this.position.x, this.position.y);
 		this.animation.update();
+
+		if (player.dead) {
+		    player.livesCount -= 1;
+		    player.dead = false;
+		    player.position.x = 248;
+		    player.position.y = 560;
+		    player.animation.position.set(player.position.x, player.position.y);
+		    player.boundingBox.x = player.position.x-2;
+		    player.boundingBox.y = player.position.y-2;
+		    player.animation.update();
+		    player.animation = new Animation(player.width, player.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
+
+		    timer.countDown = 59;
+			timer.startingTimer = (timer.currentTime.getHours() * 360
+			+ timer.currentTime.getMinutes() * 60
+			+ timer.currentTime.getSeconds());
+		};
 	};
 
 	Lives.prototype.render = function(ctx) {

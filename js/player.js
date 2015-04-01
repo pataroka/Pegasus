@@ -6,6 +6,7 @@ var Player = (function() {
         this.width = 40;
         this.height = 40;
         this.dead = false;
+        this.livesCount = 3;
         this.position = new Vector2(x, y);
         //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 38;

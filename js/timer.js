@@ -16,15 +16,21 @@ var Timer = (function() {
 			+ this.currentTime.getMinutes() * 60
 			+ this.currentTime.getSeconds());
 
-		// this.timerMinutes = Math.floor((this.currentTimer - this.startingTimer) / 60);
+		
 		this.timerSeconds = (this.currentTimer - this.startingTimer) % 60;
-		// if (this.timerSeconds < 10) {
-		// 	this.timerText = this.timerMinutes.toFixed(0) + ":0" + this.timerSeconds.toFixed(0);
-			
-		// } else {
-		// 	this.timerText = this.timerMinutes.toFixed(0) + ":" + this.timerSeconds.toFixed(0);
-		// }
-		this.timerText = "time: " + (this.countDown - this.timerSeconds);
+		
+		this.countDown = 59 - this.timerSeconds;
+		this.timerText = "time: " + this.countDown;
+		if (Math.floor(this.countDown) == 0) {
+			player.dead = true;
+		};
+
+		if (player.dead) {
+			this.countDown = 59;
+			this.startingTimer = (this.currentTime.getHours() * 360
+			+ this.currentTime.getMinutes() * 60
+			+ this.currentTime.getSeconds());
+		};
 	}
 
 	Timer.prototype.render = function(ctx) {
