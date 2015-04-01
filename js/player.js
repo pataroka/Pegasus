@@ -7,13 +7,14 @@ var Player = (function() {
         this.height = 40;
         this.dead = false;
         this.livesCount = 3;
+        this.housesReached = 0;
         this.position = new Vector2(x, y);
         //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 38;
         this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
 
         //The boundaries for player, check for colide with enemies
-        this.boundingBox = new Rectangle(x+2, y+2, this.width-4, this.height-4);
+        this.boundingBox = new Rectangle(x+6, y+6, this.width-12, this.height-12);
     }
 
     Player.prototype.update = function () {
@@ -36,8 +37,8 @@ var Player = (function() {
             alert("You lost a life! Be careful, you have " + this.livesCount + "lives remaining!")
         }
         this.animation.position.set(this.position.x, this.position.y);
-        this.boundingBox.x = this.position.x+2;
-        this.boundingBox.y = this.position.y+2;
+        this.boundingBox.x = this.position.x+6;
+        this.boundingBox.y = this.position.y+6;
         this.animation.update();
     };
 
