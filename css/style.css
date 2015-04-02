@@ -11,9 +11,9 @@ canvas {
 }
 
 #start-button-clicked > a {
-    position: absolute;
-    top: 220px;
-    left: 393px;
+    position: fixed;
+    top: 35%;
+    left: 32%;
 }
  h3{
       text-align: center;
