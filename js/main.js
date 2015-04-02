@@ -171,10 +171,10 @@ var ctx = canvas.getContext('2d');
 //// call on page load
 //Util.message();
 
-//theme = document.createElement('audio');
-//theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
-//theme.setAttribute('loop', 'true');
-//theme.play();
+theme = document.createElement('audio');
+theme.setAttribute('src', 'assets/theme/Bomberman_Stage_Theme.mp3');
+theme.setAttribute('loop', 'true');
+theme.play();
 
 var input = new Input();
 attachListeners(input);
