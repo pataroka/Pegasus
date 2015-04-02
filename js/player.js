@@ -14,7 +14,8 @@ var Player = (function() {
         this.lastY;
         //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 38;
-        this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
+
+        this.animation = new Animation(this.width, this.height, 0, 0, 1, 'assets/images/player/player_sprite.png', 3, 1, 1);
 
         //The boundaries for player, check for colide with enemies
         this.boundingBox = new Rectangle(x+6, y+6, this.width-12, this.height-12);
@@ -22,16 +23,16 @@ var Player = (function() {
 
     Player.prototype.update = function () {
         //if (this.movement.left) {
-        //    this.position.x  -= this.velocity * dt; //move 1 block to left
+        //    this.animation = new Animation(this.width, this.height, 2, 3, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
         //    console.log('left');
         //} else if (this.movement.right) {
-        //    this.position.x += this.velocity * dt; // move 1 block to right
+        //    this.animation = new Animation(this.width, this.height, 3, 3, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
         //    console.log('right');
         //} else if (this.movement.up) {
-        //    this.position.y -= this.velocity * dt;
+        //    this.animation = new Animation(this.width, this.height, 0, 3, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
         //    console.log('up');
         //} else if (this.movement.down) {
-        //    this.position.y += this.velocity * dt;
+        //    this.animation = new Animation(this.width, this.height, 1, 3, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
         //    console.log('down');
         //}
 		if (this.dead){
