@@ -31,7 +31,7 @@ var FrogOnObject = (function() {
 			}
 		});
 
-		if (player.lastX == player.position.x && player.position.y < 278 
+		if (player.lastX == player.position.x && player.position.y < 281 
 			&& player.lastY == player.position.y 
 			&& (player.position.x > 0 && player.position.x < 480) 
 			&& player.position.y > 120) {

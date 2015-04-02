@@ -31,12 +31,14 @@ var House = (function() {
 			    player.boundingBox.x = player.position.x-2;
 			    player.boundingBox.y = player.position.y-2;
 			    player.animation.update();
-			    player.animation = new Animation(player.width, player.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
+			    player.animation = new Animation(player.width, player.height, 0, 0, 1, 'assets/images/player/player_sprite.png', 3, 1, 1);
 
 			    timer.countDown = 59;
 				timer.startingTimer = (timer.currentTime.getHours() * 360
 				+ timer.currentTime.getMinutes() * 60
 				+ timer.currentTime.getSeconds());
+				score.zoneOneReached = false;
+				score.zoneTwoReached = false;
 			};
 		}
 	}

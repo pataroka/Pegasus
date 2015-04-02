@@ -504,7 +504,7 @@ function attachListeners(input) {
                 if ((player.position.y -= 40) < 80){
                     player.position.y = 80.6;
                 } else {
-                    player.position.y -= (player.velocity * pdt)-1;
+                    player.position.y -= (player.velocity * pdt) - 1;
                 }
                 console.log(player.position);
                 input.up = true;
@@ -522,7 +522,7 @@ function attachListeners(input) {
                 if ((player.position.y += 40) > 560){
                     player.position.y = 560;
                 } else {
-                    player.position.y += (player.velocity * pdt)-1;
+                    player.position.y += (player.velocity * pdt) - 1;
                 }
                 console.log(player.position);
                 input.down = true;
