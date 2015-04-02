@@ -22,7 +22,7 @@ var House = (function() {
 				&& (player.position.x >= this.position.x - 20 
 				&& player.position.x <= this.position.x + 40)) {
 				this.houseReached = true;
-                player.housesReached += 1;
+                player.housesReached += 1;               
 				score.scoreCounter += 200;
 			};
 		}

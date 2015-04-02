@@ -32,6 +32,11 @@ var Lives = (function() {
 		if(player.livesCount == 0) {
 			window.location.href = 'index.html';
 		}
+
+		if (player.housesReached == 4){
+			alert("Congratulations! Mission accomplished!");
+			window.location.href = 'index.html';
+		}
 	};
 
 	Lives.prototype.render = function(ctx) {

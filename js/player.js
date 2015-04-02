@@ -9,6 +9,9 @@ var Player = (function() {
         this.livesCount = 3;
         this.housesReached = 0;
         this.position = new Vector2(x, y);
+        this.moved = false;
+        this.lastX;
+        this.lastY;
         //this.movement = {left : false, right : false, up : false, down : false};
         this.velocity = 38;
         this.animation = new Animation(this.width, this.height, 0, 0, 3, 'assets/images/player/player_sprite.png', 3, 3, 1);
